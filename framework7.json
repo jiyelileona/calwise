@@ -1,0 +1,19 @@
+{
+  "cwd": "/Users/leo/code/svelte",
+  "type": [
+    "pwa"
+  ],
+  "name": "My App",
+  "framework": "svelte",
+  "template": "tabs",
+  "bundler": "vite",
+  "cssPreProcessor": "scss",
+  "theming": {
+    "customColor": true,
+    "color": "#8067bb",
+    "darkTheme": false,
+    "iconFonts": true,
+    "fillBars": false
+  },
+  "customBuild": false
+}
