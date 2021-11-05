@@ -8,6 +8,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development vite",
+    "serve": "nodemon server.js",
     "build": "cross-env NODE_ENV=production vite build && npx workbox generateSW workbox-config.js",
     "postinstall": "cpy ./node_modules/framework7-icons/fonts/*.* ./src/fonts/ && cpy ./node_modules/material-icons/iconfont/*.* ./src/fonts/"
   },
@@ -21,18 +22,24 @@
   ],
   "dependencies": {
     "dom7": "^3.0.0",
+    "express": "^4.17.1",
     "framework7": "^6.3.5",
     "framework7-icons": "^5.0.5",
     "framework7-svelte": "^6.3.5",
     "material-icons": "^1.10.0",
+    "mysql": "^2.18.1",
+    "sequelize": "^6.9.0",
     "skeleton-elements": "^3.5.0",
+    "sqlite3": "^5.0.2",
     "svelte": "^3.44.0",
     "swiper": "^6.8.4"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
+    "cors": "^2.8.5",
     "cpy-cli": "^3.1.1",
     "cross-env": "^7.0.3",
+    "nodemon": "^2.0.14",
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.43.3",
     "vite": "^2.6.10",

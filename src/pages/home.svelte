@@ -1,27 +1,101 @@
+<script>
+  import {
+    Page,
+    Navbar,
+    NavLeft,
+    NavTitle,
+    NavTitleLarge,
+    NavRight,
+    Link,
+    ListInput,
+    ListButton,
+    Toolbar,
+    Block,
+    BlockTitle,
+    List,
+    ListItem,
+    Row,
+    Col,
+    Button,
+  } from "framework7-svelte";
+
+  let name = "";
+  let age = null;
+
+  async function createCat() {
+    let res = await fetch("http://localhost:3001/cats", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, age }),
+    });
+
+    console.log(res.status);
+
+    name = "";
+    age = null;
+  }
+</script>
+
 <Page name="home">
   <!-- Top Navbar -->
   <Navbar large sliding={false}>
     <NavLeft>
-      <Link iconIos="f7:menu" iconAurora="f7:menu" iconMd="material:menu" panelOpen="left" />
+      <Link
+        iconIos="f7:menu"
+        iconAurora="f7:menu"
+        iconMd="material:menu"
+        panelOpen="left"
+      />
     </NavLeft>
     <NavTitle sliding>My App</NavTitle>
     <NavRight>
-      <Link iconIos="f7:menu" iconAurora="f7:menu" iconMd="material:menu" panelOpen="right" />
+      <Link
+        iconIos="f7:menu"
+        iconAurora="f7:menu"
+        iconMd="material:menu"
+        panelOpen="right"
+      />
     </NavRight>
     <NavTitleLarge>My App</NavTitleLarge>
   </Navbar>
 
   <!-- Page content -->
   <Block strong>
-    <p>This is an example of tabs-layout application. The main point of such tabbed layout is that each tab contains independent view with its own routing and navigation.</p>
+    <p>
+      This is an example of tabs-layout application. The main point of such
+      tabbed layout is that each tab contains independent view with its own
+      routing and navigation.
+    </p>
 
-    <p>Each tab/view may have different layout, different navbar type (dynamic, fixed or static) or without navbar like this tab.</p>
+    <p>
+      Each tab/view may have different layout, different navbar type (dynamic,
+      fixed or static) or without navbar like this tab.
+    </p>
   </Block>
+
+  <BlockTitle>Form Example</BlockTitle>
+  <List noHairlinesMd>
+    <ListInput
+      label="Name"
+      type="text"
+      placeholder="cat name"
+      bind:value={name}
+    />
+    <ListInput
+      label="Age"
+      type="number"
+      placeholder="how old is this cat?"
+      bind:value={age}
+    />
+    <ListButton title="create cat" on:click={createCat} />
+  </List>
 
   <BlockTitle>Navigation</BlockTitle>
   <List>
-    <ListItem link="/about/" title="About"/>
-    <ListItem link="/form/" title="Form"/>
+    <ListItem link="/about/" title="About" />
+    <ListItem link="/form/" title="Form" />
   </List>
 
   <BlockTitle>Modals</BlockTitle>
@@ -31,7 +105,9 @@
         <Button fill raised popupOpen="#my-popup">Popup</Button>
       </Col>
       <Col width="50">
-        <Button fill raised loginScreenOpen="#my-login-screen">Login Screen</Button>
+        <Button fill raised loginScreenOpen="#my-login-screen"
+          >Login Screen</Button
+        >
       </Col>
     </Row>
   </Block>
@@ -63,22 +139,3 @@
     />
   </List>
 </Page>
-<script>
-  import {
-    Page,
-    Navbar,
-    NavLeft,
-    NavTitle,
-    NavTitleLarge,
-    NavRight,
-    Link,
-    Toolbar,
-    Block,
-    BlockTitle,
-    List,
-    ListItem,
-    Row,
-    Col,
-    Button
-  } from 'framework7-svelte';
-</script>

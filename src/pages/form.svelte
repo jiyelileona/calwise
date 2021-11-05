@@ -1,42 +1,35 @@
+<script>
+  import {
+    Page,
+    Navbar,
+    List,
+    ListInput,
+    ListItem,
+    Toggle,
+    BlockTitle,
+    Row,
+    Button,
+    Range,
+    Block,
+  } from "framework7-svelte";
+</script>
+
 <Page name="form">
-  <Navbar title="Form" backLink="Back"></Navbar>
+  <Navbar title="Form" backLink="Back" />
 
   <BlockTitle>Form Example</BlockTitle>
   <List noHairlinesMd>
-    <ListInput
-      label="Name"
-      type="text"
-      placeholder="Your name"
-    ></ListInput>
+    <ListInput label="Name" type="text" placeholder="Your name" />
 
-    <ListInput
-      label="E-mail"
-      type="email"
-      placeholder="E-mail"
-    ></ListInput>
+    <ListInput label="E-mail" type="email" placeholder="E-mail" />
 
-    <ListInput
-      label="URL"
-      type="url"
-      placeholder="URL"
-    ></ListInput>
+    <ListInput label="URL" type="url" placeholder="URL" />
 
-    <ListInput
-      label="Password"
-      type="password"
-      placeholder="Password"
-    ></ListInput>
+    <ListInput label="Password" type="password" placeholder="Password" />
 
-    <ListInput
-      label="Phone"
-      type="tel"
-      placeholder="Phone"
-    ></ListInput>
+    <ListInput label="Phone" type="tel" placeholder="Phone" />
 
-    <ListInput
-      label="Gender"
-      type="select"
-      >
+    <ListInput label="Gender" type="select">
       <option>Male</option>
       <option>Female</option>
     </ListInput>
@@ -46,36 +39,22 @@
       type="date"
       placeholder="Birth day"
       value="2014-04-30"
-    ></ListInput>
+    />
 
-    <ListItem
-      title="Toggle"
-    >
+    <ListItem title="Toggle">
       <span slot="after">
         <Toggle />
       </span>
     </ListItem>
 
-    <ListInput
-      label="Range"
-      input={false}
-    >
+    <ListInput label="Range" input={false}>
       <span slot="input">
         <Range value={50} min={0} max={100} step={1} />
       </span>
     </ListInput>
 
-    <ListInput
-      type="textarea"
-      label="Textarea"
-      placeholder="Bio"
-    ></ListInput>
-    <ListInput
-      type="textarea"
-      label="Resizable"
-      placeholder="Bio"
-      resizable
-    ></ListInput>
+    <ListInput type="textarea" label="Textarea" placeholder="Bio" />
+    <ListInput type="textarea" label="Resizable" placeholder="Bio" resizable />
   </List>
 
   <BlockTitle>Buttons</BlockTitle>
@@ -116,60 +95,15 @@
 
   <BlockTitle>Checkbox group</BlockTitle>
   <List>
-    <ListItem
-      checkbox
-      name="my-checkbox"
-      value="Books"
-      title="Books"
-    ></ListItem>
-    <ListItem
-      checkbox
-      name="my-checkbox"
-      value="Movies"
-      title="Movies"
-    ></ListItem>
-    <ListItem
-      checkbox
-      name="my-checkbox"
-      value="Food"
-      title="Food"
-    ></ListItem>
+    <ListItem checkbox name="my-checkbox" value="Books" title="Books" />
+    <ListItem checkbox name="my-checkbox" value="Movies" title="Movies" />
+    <ListItem checkbox name="my-checkbox" value="Food" title="Food" />
   </List>
 
   <BlockTitle>Radio buttons group</BlockTitle>
   <List>
-    <ListItem
-      radio
-      name="radio"
-      value="Books"
-      title="Books"
-    ></ListItem>
-    <ListItem
-      radio
-      name="radio"
-      value="Movies"
-      title="Movies"
-    ></ListItem>
-    <ListItem
-      radio
-      name="radio"
-      value="Food"
-      title="Food"
-    ></ListItem>
+    <ListItem radio name="radio" value="Books" title="Books" />
+    <ListItem radio name="radio" value="Movies" title="Movies" />
+    <ListItem radio name="radio" value="Food" title="Food" />
   </List>
 </Page>
-<script>
-  import {
-    Page,
-    Navbar,
-    List,
-    ListInput,
-    ListItem,
-    Toggle,
-    BlockTitle,
-    Row,
-    Button,
-    Range,
-    Block
-  } from 'framework7-svelte';
-</script>
