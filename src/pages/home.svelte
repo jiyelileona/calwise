@@ -9,7 +9,6 @@
     Link,
     ListInput,
     ListButton,
-    Toolbar,
     Block,
     BlockTitle,
     List,

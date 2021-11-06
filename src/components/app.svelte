@@ -48,6 +48,11 @@
   // Login screen demo data
   let username = "";
   let password = "";
+  let loggedIn = false;
+
+  // setTimeout(() => {
+  //   loggedIn = true;
+  // }, 2000);
 
   function alertLoginData() {
     f7.dialog.alert(
@@ -63,8 +68,8 @@
     });
   });
 
-  let data = fetch("http://localhost:3001/cats", { method: "GET" }).then((res) =>
-    res.json()
+  let data = fetch("http://localhost:3001/cats", { method: "GET" }).then(
+    (res) => res.json()
   );
 </script>
 
@@ -101,33 +106,39 @@
   <!-- Views/Tabs container -->
   <Views tabs class="safe-areas">
     <!-- Tabbar for switching views-tabs -->
-    <Toolbar tabbar labels bottom>
-      <Link
-        tabLink="#view-home"
-        tabLinkActive
-        iconIos="f7:house_fill"
-        iconAurora="f7:house_fill"
-        iconMd="material:home"
-        text="Home"
-      />
-      <Link
-        tabLink="#view-catalog"
-        iconIos="f7:square_list_fill"
-        iconAurora="f7:square_list_fill"
-        iconMd="material:view_list"
-        text="Catalog"
-      />
-      <Link
-        tabLink="#view-settings"
-        iconIos="f7:gear"
-        iconAurora="f7:gear"
-        iconMd="material:settings"
-        text="Settings"
-      />
-    </Toolbar>
+    {#if loggedIn}
+      <Toolbar tabbar labels bottom>
+        <Link
+          tabLink="#view-home"
+          tabLinkActive
+          iconIos="f7:house_fill"
+          iconAurora="f7:house_fill"
+          iconMd="material:home"
+          text="Home"
+        />
+        <Link
+          tabLink="#view-catalog"
+          iconIos="f7:square_list_fill"
+          iconAurora="f7:square_list_fill"
+          iconMd="material:view_list"
+          text="Catalog"
+        />
+        <Link
+          tabLink="#view-settings"
+          iconIos="f7:gear"
+          iconAurora="f7:gear"
+          iconMd="material:settings"
+          text="Settings"
+        />
+      </Toolbar>
+    {/if}
 
     <!-- Your main view/tab, should have "view-main" class. It also has "tabActive" prop -->
-    <View id="view-home" main tab tabActive url="/" />
+    {#if !loggedIn}
+      <View id="view-onBoarding" url="/" />
+    {/if}
+
+    <View id="view-home" main tab tabActive url="/home/" />
 
     <!-- Catalog View -->
     <View id="view-catalog" name="catalog" tab url="/catalog/" />

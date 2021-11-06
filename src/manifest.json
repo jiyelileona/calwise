@@ -1,7 +1,7 @@
 {
-  "name": "My App",
-  "short_name": "My App",
-  "description": "My App",
+  "name": "calwise",
+  "short_name": "calwise",
+  "description": "healthy eating",
   "lang": "en-US",
   "start_url": "/",
   "display": "standalone",

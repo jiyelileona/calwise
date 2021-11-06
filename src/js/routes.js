@@ -1,47 +1,51 @@
+import HomePage from "../pages/home.svelte";
+import AboutPage from "../pages/about.svelte";
+import FormPage from "../pages/form.svelte";
+import CatalogPage from "../pages/catalog.svelte";
+import ProductPage from "../pages/product.svelte";
+import SettingsPage from "../pages/settings.svelte";
+import onBoardingPage from "../pages/onBoarding.svelte";
 
-import HomePage from '../pages/home.svelte';
-import AboutPage from '../pages/about.svelte';
-import FormPage from '../pages/form.svelte';
-import CatalogPage from '../pages/catalog.svelte';
-import ProductPage from '../pages/product.svelte';
-import SettingsPage from '../pages/settings.svelte';
-
-import DynamicRoutePage from '../pages/dynamic-route.svelte';
-import RequestAndLoad from '../pages/request-and-load.svelte';
-import NotFoundPage from '../pages/404.svelte';
+import DynamicRoutePage from "../pages/dynamic-route.svelte";
+import RequestAndLoad from "../pages/request-and-load.svelte";
+import NotFoundPage from "../pages/404.svelte";
 
 var routes = [
   {
-    path: '/',
+    path: "/",
+    component: onBoardingPage,
+  },
+  {
+    path: "/home/",
     component: HomePage,
   },
   {
-    path: '/about/',
+    path: "/about/",
     component: AboutPage,
   },
   {
-    path: '/form/',
+    path: "/form/",
     component: FormPage,
   },
   {
-    path: '/catalog/',
+    path: "/catalog/",
     component: CatalogPage,
   },
   {
-    path: '/product/:id/',
+    path: "/product/:id/",
     component: ProductPage,
   },
   {
-    path: '/settings/',
+    path: "/settings/",
     component: SettingsPage,
   },
 
   {
-    path: '/dynamic-route/blog/:blogId/post/:postId/',
+    path: "/dynamic-route/blog/:blogId/post/:postId/",
     component: DynamicRoutePage,
   },
   {
-    path: '/request-and-load/user/:userId/',
+    path: "/request-and-load/user/:userId/",
     async: function ({ router, to, resolve }) {
       // App instance
       var app = router.app;
@@ -56,19 +60,19 @@ var routes = [
       setTimeout(function () {
         // We got user data from request
         var user = {
-          firstName: 'Vladimir',
-          lastName: 'Kharlampidi',
-          about: 'Hello, i am creator of Framework7! Hope you like it!',
+          firstName: "Vladimir",
+          lastName: "Kharlampidi",
+          about: "Hello, i am creator of Framework7! Hope you like it!",
           links: [
             {
-              title: 'Framework7 Website',
-              url: 'http://framework7.io',
+              title: "Framework7 Website",
+              url: "http://framework7.io",
             },
             {
-              title: 'Framework7 Forum',
-              url: 'http://forum.framework7.io',
+              title: "Framework7 Forum",
+              url: "http://forum.framework7.io",
             },
-          ]
+          ],
         };
         // Hide Preloader
         app.preloader.hide();
@@ -81,14 +85,14 @@ var routes = [
           {
             props: {
               user: user,
-            }
+            },
           }
         );
       }, 1000);
     },
   },
   {
-    path: '(.*)',
+    path: "(.*)",
     component: NotFoundPage,
   },
 ];

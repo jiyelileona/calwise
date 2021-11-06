@@ -1,5 +1,4 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const { ModuleGraph } = require("vite");
 
 const db = new Sequelize({
   dialect: "sqlite",

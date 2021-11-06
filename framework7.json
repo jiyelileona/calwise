@@ -3,14 +3,14 @@
   "type": [
     "pwa"
   ],
-  "name": "My App",
+  "name": "calwise",
   "framework": "svelte",
   "template": "tabs",
   "bundler": "vite",
   "cssPreProcessor": "scss",
   "theming": {
     "customColor": true,
-    "color": "#8067bb",
+    "color": "#8883F0",
     "darkTheme": false,
     "iconFonts": true,
     "fillBars": false
