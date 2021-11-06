@@ -48,11 +48,6 @@
   // Login screen demo data
   let username = "";
   let password = "";
-  let loggedIn = false;
-
-  // setTimeout(() => {
-  //   loggedIn = true;
-  // }, 2000);
 
   function alertLoginData() {
     f7.dialog.alert(
@@ -106,7 +101,7 @@
   <!-- Views/Tabs container -->
   <Views tabs class="safe-areas">
     <!-- Tabbar for switching views-tabs -->
-    {#if loggedIn}
+    {#if store.state.loggedIn}
       <Toolbar tabbar labels bottom>
         <Link
           tabLink="#view-home"
@@ -134,7 +129,7 @@
     {/if}
 
     <!-- Your main view/tab, should have "view-main" class. It also has "tabActive" prop -->
-    {#if !loggedIn}
+    {#if store.state.loggedInedIn}
       <View id="view-onBoarding" url="/" />
     {/if}
 
