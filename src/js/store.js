@@ -2,8 +2,7 @@ import { createStore } from "framework7/lite";
 
 const store = createStore({
   state: {
-    loggedIn: true,
-    registered: true,
+    loggedIn: false,
     products: [
       {
         id: "1",
@@ -32,9 +31,6 @@ const store = createStore({
     loggedIn({ state }) {
       return state.loggedIn;
     },
-    registered({ state }) {
-      return state.registered;
-    }
   },
   actions: {
     addProduct({ state }, product) {

@@ -74,7 +74,7 @@
     </p>
   </Block>
 
-  <BlockTitle>Form Example</BlockTitle>
+  <!-- <BlockTitle>Form Example</BlockTitle>
   <List noHairlinesMd>
     <ListInput
       label="Name"
@@ -89,7 +89,7 @@
       bind:value={age}
     />
     <ListButton title="create cat" on:click={createCat} />
-  </List>
+  </List> -->
 
   <BlockTitle>Navigation</BlockTitle>
   <List>

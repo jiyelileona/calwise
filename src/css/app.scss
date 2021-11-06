@@ -1,12 +1,12 @@
 /* Custom color theme properties */
 :root {
-  --f7-theme-color: #8883F0;
+  --f7-theme-color: #8883f0;
   --f7-theme-color-rgb: 128, 103, 187;
   --f7-theme-color-shade: #694dac;
   --f7-theme-color-tint: #9883c8;
 }
 
 /* Your app custom styles here */
-.page-content {
- background-color: #F7FAFE;
+.page-content, .login-screen-content, .login-screen-page, .login-screen .page {
+  background-color: #f7fafe;
 }

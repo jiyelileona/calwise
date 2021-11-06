@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 const cors = require("cors");
 
-const { Cat } = require("./db.js");
+const { User, getHash } = require("./models/user");
 
 app.use(
   cors({
@@ -13,18 +13,18 @@ app.use(
 
 app.use(express.json());
 
-app.get("/cats", async (req, res) => {
-  let cats = await Cat.findAll();
+app.post("/register", async (req, res) => {
+  let { email, password, passwordConfirmation } = req.body;
 
-  res.json(cats.map((cat) => cat.name));
-});
-
-app.post("/cats", async (req, res) => {
-  let { name, age } = req.body;
-
-  await Cat.create({ name, age });
+  await User.create({ email, password: getHash(password) });
 
   res.sendStatus(200);
+});
+
+app.post("/login", async (req, res) => {
+  let { email, password } = req.body;
+
+
 });
 
 app.listen(port, () => {

@@ -1,19 +1,17 @@
 <script>
-  import { Page, Button, Block } from "framework7-svelte";
+  import { Page, Button, Block, Link } from "framework7-svelte";
   import store from "../js/store";
 
-  function login() {
-    alert("login");
-  }
 </script>
 
 <Page name="onBoarding">
   <img src="../assets/calwise.png" alt="calwise" />
 
-  {#if store.state.registered}
-    <Block>
-      <Block>
-        <Button round fill large onClick={login}>Login</Button>
+  {#if !store.state.loggedIn}
+    <Block inset>
+      <Block inset>
+        <Button round fill large popupOpen="#my-login-screen">Login</Button>
+        <Button round popupOpen="#my-popup">register</Button>
       </Block>
     </Block>
   {/if}

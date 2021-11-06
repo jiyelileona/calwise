@@ -63,9 +63,9 @@
     });
   });
 
-  let data = fetch("http://localhost:3001/cats", { method: "GET" }).then(
-    (res) => res.json()
-  );
+  // let data = fetch("http://localhost:3001/cats", { method: "GET" }).then(
+  //   (res) => res.json()
+  // );
 </script>
 
 <App {...f7params}>
@@ -76,13 +76,13 @@
         <Navbar title="Left Panel" />
         <Block>Left panel content goes here</Block>
         <Block>
-          <ul>
+          <!-- <ul>
             {#await data then cats}
               {#each cats as cat}
                 <li>{cat}</li>
               {/each}
             {/await}
-          </ul>
+          </ul> -->
         </Block>
       </Page>
     </View>
@@ -129,7 +129,7 @@
     {/if}
 
     <!-- Your main view/tab, should have "view-main" class. It also has "tabActive" prop -->
-    {#if store.state.loggedInedIn}
+    {#if !store.state.loggedInedIn}
       <View id="view-onBoarding" url="/" />
     {/if}
 

@@ -1,6 +1,6 @@
-const { Sequelize, DataTypes } = require("sequelize");
+const { Sequelize } = require("sequelize");
 
-const db = new Sequelize({
+module.exports = new Sequelize({
   dialect: "sqlite",
   storage: "./calwise.db",
 });
@@ -10,28 +10,8 @@ async function test() {
     await db.authenticate();
     console.log("Connection has been established successfully.");
   } catch (error) {
-    console.error("something is wrong " + error);
+    console.error("Something is wrong " + error);
   }
 }
 
 test();
-
-const Cat = db.define("Cat", {
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  age: {
-    type: DataTypes.INTEGER,
-    allowNull: true,
-  },
-});
-
-Cat.sync();
-
-Cat.findAll().then((cats) => {
-  let names = cats.map((cat) => cat.name);
-  console.log(names);
-});
-
-module.exports = { Cat };
