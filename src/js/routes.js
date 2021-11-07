@@ -5,6 +5,7 @@ import CatalogPage from "../pages/catalog.svelte";
 import ProductPage from "../pages/product.svelte";
 import SettingsPage from "../pages/settings.svelte";
 import onBoardingPage from "../pages/onBoarding.svelte";
+import askForInfo from "../pages/askForInfo.svelte";
 
 import DynamicRoutePage from "../pages/dynamic-route.svelte";
 import RequestAndLoad from "../pages/request-and-load.svelte";
@@ -14,6 +15,10 @@ var routes = [
   {
     path: "/",
     component: onBoardingPage,
+  },
+  {
+    path: "/askForInfo",
+    component: askForInfo,
   },
   {
     path: "/home/",

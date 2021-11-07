@@ -25,4 +25,9 @@ async function verify(password, hash) {
   return await bcrypt.compare(password, hash);
 }
 
-module.exports = { User, getHash, verify };
+function validateEmail(email) {
+  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return email.match(regexEmail);
+}
+
+module.exports = { User, getHash, verify, validateEmail };

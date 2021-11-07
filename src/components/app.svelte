@@ -12,7 +12,8 @@
     Page,
     Navbar,
     Toolbar,
-    NavRight,
+    NavLeft,
+    NavTitle,
     Link,
     Block,
     BlockTitle,
@@ -101,7 +102,7 @@
   <!-- Views/Tabs container -->
   <Views tabs class="safe-areas">
     <!-- Tabbar for switching views-tabs -->
-    {#if store.state.loggedIn}
+    {#if store.state.loggedIn && store.state.registered}
       <Toolbar tabbar labels bottom>
         <Link
           tabLink="#view-home"
@@ -129,7 +130,7 @@
     {/if}
 
     <!-- Your main view/tab, should have "view-main" class. It also has "tabActive" prop -->
-    {#if !store.state.loggedInedIn}
+    {#if !store.state.loggedInedIn && !store.state.registered  || store.state.registered && !store.state.loggedIn}
       <View id="view-onBoarding" url="/" />
     {/if}
 
@@ -146,10 +147,11 @@
   <Popup id="my-popup">
     <View>
       <Page>
-        <Navbar title="Popup">
-          <NavRight>
-            <Link popupClose>Close</Link>
-          </NavRight>
+        <Navbar>
+          <NavLeft>
+            <Link popupClose>Back</Link>
+          </NavLeft>
+          <NavTitle>Register</NavTitle>
         </Navbar>
         <Block>
           <p>Popup content goes here.</p>
@@ -178,11 +180,8 @@
         </List>
         <List>
           <ListButton title="Sign In" onClick={() => alertLoginData()} />
+          <ListButton title="Back" onClick={() => f7.loginScreen.close()} />
         </List>
-        <BlockFooter>
-          Some text about login information.<br />Click "Sign In" to close Login
-          Screen
-        </BlockFooter>
       </Page>
     </View>
   </LoginScreen>
