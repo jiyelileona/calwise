@@ -2,139 +2,176 @@
   import {
     Page,
     Navbar,
-    NavLeft,
-    NavTitle,
-    NavTitleLarge,
-    NavRight,
     Link,
-    ListInput,
-    ListButton,
     Block,
-    BlockTitle,
-    List,
-    ListItem,
     Row,
     Col,
-    Button,
+    Card,
+    CardContent,
+    CardHeader,
+    Gauge,
   } from "framework7-svelte";
-
-  let name = "";
-  let age = null;
-
-  async function createCat() {
-    let res = await fetch("http://localhost:3001/cats", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, age }),
-    });
-
-    console.log(res.status);
-
-    name = "";
-    age = null;
-  }
 </script>
 
 <Page name="home">
   <!-- Top Navbar -->
-  <Navbar large sliding={false}>
-    <NavLeft>
-      <Link
-        iconIos="f7:menu"
-        iconAurora="f7:menu"
-        iconMd="material:menu"
-        panelOpen="left"
-      />
-    </NavLeft>
-    <NavTitle sliding>My App</NavTitle>
-    <NavRight>
-      <Link
-        iconIos="f7:menu"
-        iconAurora="f7:menu"
-        iconMd="material:menu"
-        panelOpen="right"
-      />
-    </NavRight>
-    <NavTitleLarge>My App</NavTitleLarge>
-  </Navbar>
+  <Navbar title="Hello, Leo" noHairline />
 
-  <!-- Page content -->
-  <Block strong>
-    <p>
-      This is an example of tabs-layout application. The main point of such
-      tabbed layout is that each tab contains independent view with its own
-      routing and navigation.
-    </p>
-
-    <p>
-      Each tab/view may have different layout, different navbar type (dynamic,
-      fixed or static) or without navbar like this tab.
-    </p>
+  <Block strong class="text-align-center" noHairlines>
+    <Gauge
+      type="circle"
+      value={0.52}
+      size={220}
+      borderColor="#8883f0"
+      borderWidth={16}
+      borderBgColor="#E7E6FC"
+      valueText={1700}
+      valueFontSize={36}
+      valueFontWeight={700}
+      valueTextColor="#000"
+      labelText="Kcal left"
+      labelFontSize="18"
+      bgColor="transparent"
+    />
   </Block>
 
-  <!-- <BlockTitle>Form Example</BlockTitle>
-  <List noHairlinesMd>
-    <ListInput
-      label="Name"
-      type="text"
-      placeholder="cat name"
-      bind:value={name}
-    />
-    <ListInput
-      label="Age"
-      type="number"
-      placeholder="how old is this cat?"
-      bind:value={age}
-    />
-    <ListButton title="create cat" on:click={createCat} />
-  </List> -->
-
-  <BlockTitle>Navigation</BlockTitle>
-  <List>
-    <ListItem link="/about/" title="About" />
-    <ListItem link="/form/" title="Form" />
-  </List>
-
-  <BlockTitle>Modals</BlockTitle>
-  <Block strong>
+  <Block class="text-align-center" noHairlines>
     <Row>
-      <Col width="50">
-        <Button fill raised popupOpen="#my-popup">Popup</Button>
+      <Col>
+        <Gauge
+          type="circle"
+          value={0.25}
+          size={85}
+          borderColor="#01BA88"
+          borderWidth={8}
+          borderBgColor="#D9F5ED"
+          valueText={`${100}g`}
+          valueFontSize={16}
+          valueFontWeight={700}
+          valueTextColor="#000"
+          bgColor="transparent"
+          labelText="left"
+          labelFontSize="12"
+        />
+        <p style="color: #01BA88;">Carb</p>
       </Col>
-      <Col width="50">
-        <Button fill raised loginScreenOpen="#my-login-screen"
-          >Login Screen</Button
-        >
+      <Col>
+        <Gauge
+          type="circle"
+          value={0.25}
+          size={85}
+          borderColor="#FC9C57"
+          borderWidth={8}
+          borderBgColor="#FEEBDD"
+          valueText={`${100}g`}
+          valueFontSize={16}
+          valueFontWeight={700}
+          valueTextColor="#000"
+          bgColor="transparent"
+          labelText="left"
+          labelFontSize="12"
+        />
+        <p style="color: #FC9C57;">Protein</p>
+      </Col>
+      <Col>
+        <Gauge
+          type="circle"
+          value={0.25}
+          size={85}
+          borderColor="#6D98F4"
+          borderWidth={8}
+          borderBgColor="#E2EAFD"
+          valueText={`${100}g`}
+          valueFontSize={16}
+          valueFontWeight={700}
+          valueTextColor="#000"
+          bgColor="transparent"
+          labelText="left"
+          labelFontSize="12"
+        />
+        <p style="color: #6D98F4;">Fat</p>
       </Col>
     </Row>
   </Block>
 
-  <BlockTitle>Panels</BlockTitle>
-  <Block strong>
+  <Block>
     <Row>
-      <Col width="50">
-        <Button fill raised panelOpen="left">Left Panel</Button>
+      <Col>
+        <!-- <Link href="/searchFood/"> -->
+        <Card>
+          <CardContent class="text-align-center">
+            <span class="material-icons"> restaurant </span>
+            <p>add food</p>
+          </CardContent>
+        </Card>
+        <!-- </Link> -->
       </Col>
-      <Col width="50">
-        <Button fill raised panelOpen="right">Right Panel</Button>
+      <Col>
+        <!-- <Link href="/searchWorkout/"> -->
+        <Card>
+          <CardContent class="text-align-center">
+            <span class="material-icons"> fitness_center </span>
+            <p>add workout</p>
+          </CardContent>
+        </Card>
+        <!-- </Link> -->
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <Card expandable>
+          <CardContent padding={false}>
+            <div class="daily-pick" style="height: 300px">
+              <CardHeader textColor="black" class="display-block">
+                New York Steak Frites
+                <br />
+                <small style="opacity: 0.7">Build Mobile Apps</small>
+              </CardHeader>
+              <Link
+                cardClose
+                color="black"
+                class="card-opened-fade-in"
+                style="position: absolute; right: 15px; top: 15px"
+                iconF7="xmark_circle_fill"
+              />
+            </div>
+            <div class="card-content-padding">
+              <p>
+                Framework7 - is a free and open source HTML mobile framework to
+                develop hybrid mobile apps or web apps with iOS or Android
+                (Material) native look and feel. It is also an indispensable
+                prototyping apps tool to show working app prototype as soon as
+                possible in case you need to. Framework7 is created by Vladimir
+                Kharlampidi (iDangero.us).
+              </p>
+              <p>
+                The main approach of the Framework7 is to give you an
+                opportunity to create iOS and Android (Material) apps with HTML,
+                CSS and JavaScript easily and clear. Framework7 is full of
+                freedom. It doesn't limit your imagination or offer ways of any
+                solutions somehow. Framework7 gives you freedom!
+              </p>
+            </div>
+          </CardContent>
+        </Card>
       </Col>
     </Row>
   </Block>
-
-  <List>
-    <ListItem
-      title="Dynamic (Component) Route"
-      link="/dynamic-route/blog/45/post/125/?foo=bar#about"
-    />
-    <ListItem
-      title="Default Route (404)"
-      link="/load-something-that-doesnt-exist/"
-    />
-    <ListItem
-      title="Request Data & Load"
-      link="/request-and-load/user/123456/"
-    />
-  </List>
 </Page>
+
+<style>
+  p {
+    font-weight: 700;
+  }
+
+  span {
+    color: #8883f0;
+    font-size: xxx-large;
+  }
+
+  .daily-pick {
+    background-image: url("../assets/newYorkSteakFrites.jpg");
+    background-size: cover;
+    box-shadow: inset 0 -60px 60px -16px #fff;
+  }
+</style>

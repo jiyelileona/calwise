@@ -1,5 +1,5 @@
 <Page>
-  <Navbar title="About" backLink="Back" />
+  <Navbar title="About" backLink=" " />
   <BlockTitle>About My App</BlockTitle>
   <Block strong>
     <p>Fugiat perspiciatis excepturi, soluta quod non ullam deleniti. Nobis sint nemo consequuntur, fugiat. Eius perferendis animi autem incidunt vel quod tenetur nostrum, voluptate omnis quasi quidem illum consequuntur, a, quisquam.</p>

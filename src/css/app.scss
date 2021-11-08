@@ -7,6 +7,16 @@
 }
 
 /* Your app custom styles here */
-.page-content, .login-screen-content, .login-screen-page, .login-screen .page {
+.page-content,
+.login-screen-content,
+.login-screen-page,
+.login-screen.page,
+.block,
+.navbar-inner.sliding,
+li {
   background-color: #f7fafe;
+}
+
+.block.inset.block-strong {
+  background-color: #fff;
 }
