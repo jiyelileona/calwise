@@ -76,3 +76,6 @@ framework7 assets --ui
 Love Framework7? Support project by donating or pledging on:
 - Patreon: https://patreon.com/framework7
 - OpenCollective: https://opencollective.com/framework7
+
+## App Insight
+![home-page](https://user-images.githubusercontent.com/71301404/140842276-fd5880ce-afcc-4319-b5d4-1488cdede5d4.jpg)
